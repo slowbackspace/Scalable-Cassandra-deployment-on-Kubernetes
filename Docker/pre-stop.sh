@@ -1,3 +1,4 @@
+#!/bin/bash
 if [[ $(nodetool status | grep $POD_IP) == *"UN"* ]]; then
     echo "decommissioning node"
     nodetool decommission \

@@ -37,7 +37,7 @@ spec:
                 - dc1
       containers:
         - name: cassandra
-          image: cassandra:3
+          image: spakmaro/k8s-cassandra
           command: ["/bin/sh"]
           args: ["-c", "/helpers/entrypoint.sh"]
           imagePullPolicy: IfNotPresent
@@ -120,13 +120,13 @@ spec:
           volumeMounts:
             - name: cassandra-data
               mountPath: /var/lib/cassandra/data
-            - name: helpers
-              mountPath: /helpers
-      volumes:
-        - name: helpers
-          configMap:
-            name: helpers
-            defaultMode: 0777
+            #- name: helpers
+            #  mountPath: /helpers
+      # volumes:
+      #   - name: helpers
+      #     configMap:
+      #       name: helpers
+      #       defaultMode: 0777
   volumeClaimTemplates:
     - metadata:
         name: cassandra-data
