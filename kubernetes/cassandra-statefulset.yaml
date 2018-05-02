@@ -37,7 +37,7 @@ spec:
                 - dc1
       containers:
         - name: cassandra
-          image: spakmaro/k8s-cassandra
+          image: spakmaro/k8s-cassandra:latest
           command: ["/bin/sh"]
           args: ["-c", "/helpers/entrypoint.sh"]
           imagePullPolicy: IfNotPresent
@@ -54,13 +54,6 @@ spec:
               name: jmx
             - containerPort: 9042
               name: cql
-          # resources:
-          #   limits:
-          #     cpu: "200m"
-          #     memory: 612Mi
-          #   requests:
-          #     cpu: "200m"
-          #     memory: 612Mi
           lifecycle:
             # https://help.messagesystems.com/customer/en/portal/articles/2413309-how-to-drain-cassandra-queues-prior-to-shutdown-via-the-nodetool-drain-command-
             preStop: # http://devblog.michalski.im/2012/11/25/safe-cassandra-shutdown-and-restart/
