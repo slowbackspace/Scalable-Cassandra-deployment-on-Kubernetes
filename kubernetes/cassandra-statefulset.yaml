@@ -40,7 +40,7 @@ spec:
           image: spakmaro/k8s-cassandra:latest
           command: ["/bin/sh"]
           args: ["-c", "/helpers/entrypoint.sh"]
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           securityContext:
             capabilities:
               add:
